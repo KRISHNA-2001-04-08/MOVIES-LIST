@@ -1,0 +1,36 @@
+<h1 style="text-align: center;">Movies</h1>
+
+<!-- Search Box -->
+<form method="get" style="text-align: center; margin: 50px;">
+    <input style="width: 50%; " type="text" name="q" placeholder="Search" value="{{ request.GET.q }}">
+    <button type="submit" style="cursor: pointer;">Search</button>
+</form>
+
+<p style="text-align:center; margin:auto;">
+    <a href="{% url 'add_movie' %}" style=" color:blue; cursor: pointer;;">Add Movie </a>
+</p>
+
+
+<table border="1" style="width: 50%;text-align: center; margin: auto; margin-top: 50px;">
+    <tr>
+   <th style="padding: 6px;">Name</th>
+   <th style="padding: 6px;">Director</th>
+   <th style="padding: 6px;">Genre</th>
+   <th style="padding: 6px;">Year</th>
+   <th style="padding: 6px;">Actions </th>
+   </tr>
+
+{% for m in movies %}
+<tr>
+    <td style="padding: 6px;">{{ m.name }}</td>
+    <td style="padding: 6px;">{{ m.director }}</td>
+    <td style="padding: 6px;">{{ m.genre }}</td>
+    <td style="padding: 6px;">{{ m.year }}</td>
+    <td style="padding: 6px;"><a href="{% url 'update_movie' m.pk %}">Edit</a>
+        <a href="{% url 'delete_movie' m.pk %}">Delete</a></td>
+    </tr>
+               
+{% empty %}
+    <li>No movies found</li>
+{% endfor %}
+</table>

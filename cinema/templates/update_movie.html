@@ -1,0 +1,21 @@
+<h2 style="text-align: center;">Edit Movie</h2>
+<form method="post" style="width:300px; margin:auto; padding:10px;  border-radius:5px;">
+    {% csrf_token %}
+   <label style="display: inline-block; width: 100px; text-align: right;">Name:</label>
+    <input type="text" name="name" style="margin-bottom: 20px;"><br>
+
+    <label style="display: inline-block; width: 100px; text-align: right;">Director:</label>
+    <input type="text" name="director" style="margin-bottom: 20px;"><br>
+
+    <label style="display: inline-block; width: 100px; text-align: right;">Genre:</label>
+    <input type="text" name="genre" style="margin-bottom: 20px;"><br>
+
+    <label style="display: inline-block; width: 100px; text-align: right;">Year:</label>
+    <input type="number" name="year" style="margin-bottom: 20px;"><br>
+
+    <input type="submit" value="Update" style="margin-left: 140px; width: 30%; padding: 5px;background:green; color:white; border:none; border-radius:30px; cursor:pointer;">
+</form>
+
+<p style="text-align:center; margin-top:20px;margin-left: 70px;">
+    <a href="{% url 'movie_list' %}" style=" color:blue;">Back </a>
+</p>

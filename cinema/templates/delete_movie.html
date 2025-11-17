@@ -1,0 +1,11 @@
+<h2 style="text-align: center;">Delete Movie</h2>
+<p style="text-align: center;">Are you sure you want to delete "{{ movie.name }}"?</p>
+<form method="post" style="text-align:center; margin-top:15px;">
+    {% csrf_token %}
+    <input type="submit" value="Delete" 
+           style="padding:6px ; background:red; color:white; border:none; border-radius:3px; cursor:pointer;">
+</form>
+<p style="text-align:center; margin-top:10px;">
+    <a href="{% url 'movie_list' %}" 
+       style="color:blue;">Cancel</a>
+</p>
